@@ -2,17 +2,18 @@ import * as React from "react";
 
 import { Routes, Route, Link } from "react-router-dom";
 
+import Form from "./Form";
 import Tasks from "./Tasks";
 
 const App = () => (
   <>
     <nav>
-      <Link to="/">Home</Link> | <Link to="dashboard">Dashboard</Link>
+      <Link to="/">Home</Link> | <Link to="new-post">New Post</Link>
     </nav>
     <main>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/new-post" element={<NewPost />} />
       </Routes>
     </main>
   </>
@@ -26,9 +27,9 @@ const Home = () => (
   </>
 );
 
-const Dashboard = () => (
+const NewPost = () => (
   <>
-    <h1>Dashboard</h1>
+    <Form />
   </>
 );
 

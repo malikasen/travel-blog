@@ -1,0 +1,31 @@
+.App {
+  padding: 0% 5%;
+  /* text-align: center; */
+}
+.container {
+  margin-top: 2%; 
+  margin-bottom: 2%;
+}
+form {
+  margin-top: 2%; 
+  margin-bottom: 2%;
+}
+.row {
+  margin-bottom: 1%;
+}
+.control-label {
+  text-align: right;
+}
+.button {
+  display: block;
+  width: 100%;
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
+  border-radius: 10px;
+  /* background-color: #292b2c important!; */
+}
+.button:hover {
+  background-color: #555555;
+  color: white;
+}
