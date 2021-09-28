@@ -1,4 +1,5 @@
 export const getTasks = () => _get("/api/tasks");
+export const getArticles = () => _get("/api/article");
 
 export const addTask = (name) => _post("/api/tasks", { name });
 
