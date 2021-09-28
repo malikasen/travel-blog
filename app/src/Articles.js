@@ -9,7 +9,7 @@ function Articles({articles, setArticles}) {
   const [groupedArticles, setGroupedArticles] = useState({});
   const articlesToGroupedArticles = localArticles => {
     const localGroupedArticles = {};
-    console.log(articles);
+    // console.log(articles);
     for(let i = 0; i < articles.length; i++) {
       const article = localArticles[i];
       if(localGroupedArticles[article.country] === undefined){
@@ -17,7 +17,7 @@ function Articles({articles, setArticles}) {
       }
       localGroupedArticles[article.country].push(article);
     }
-    console.log(localGroupedArticles);
+    // console.log(localGroupedArticles);
     return localGroupedArticles;
   };
   
@@ -36,27 +36,32 @@ function Articles({articles, setArticles}) {
     // console.log("articles", articles);
     setGroupedArticles(articlesToGroupedArticles(articles))
   }, [articles])
-  console.log(Object.entries(groupedArticles))
-  return (
-    "hello"
-    // {
-    //   Object.entries(groupedArticles).map((countryName, destinations) => {
-    //     return <CountryPage countryName={countryName} destinations={destinations}/>
-    //   })
-    // }
+  // console.log("object", Object.entries(groupedArticles))
+  const [countryPages, setCountryPages] = useState([]);
+  useEffect(() => {
+    const temp = Object.keys(groupedArticles).map((countryName) => {
+      return <CountryPage countryName={countryName} destinations={groupedArticles[countryName]}/>
+    })
+    setCountryPages(temp);
+  }, [groupedArticles]);
+  console.log("countryPages",countryPages)
+  if(countryPages.length === 0) {
+    return "loading..."
+  }
+  return <div>
+      {
+        countryPages
+      }
+    </div>
+    // "hello"
+    
     // <div>
     //   {articles.map((article) => (
-    //     <div key={article.id}>
-    //       <h3>{article.title}</h3>
-    //       <h3>{article.country}</h3>
-    //       <p>{article.postdate}</p>
-    //       <p>{article.overview}</p>
-    //       <p>{article.destination}</p>
-    //     </div>
+    
     //   ))} 
 
     // </div>
-  )
+  
 }
 
 export default Articles;
