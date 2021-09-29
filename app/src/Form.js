@@ -9,8 +9,10 @@ function Form({loadArticles}) {
   const [title, setTitle] = useState("");
   const [overview, setOverview] = useState("");
   const [country, setCountry] = useState("");
-  const [description, setDescription] = useState("");
+  const [imageurl, setImageurl] = useState("");
   const [region, setRegion] = useState("");
+  const [description, setDescription] = useState("");
+  const [imgurl, setImgurl] = useState("");
 
   const addArticle = (newPost) => {
     return apiClient.addArticle(newPost).then(loadArticles);
@@ -18,14 +20,17 @@ function Form({loadArticles}) {
 
   const collectData = (e) => {
     e.preventDefault();
-    const newPost = {title: title, country: country, overview: overview, region: region, description: description};
-    // call function postNewPost and possibly redirect to the new article
+    const date = new Date();
+    const newPost = {title: title, country: country, overview: overview, imageurl: imageurl, date: date, region: region, description: description, imgurl: imgurl};
     addArticle(newPost);
+    // redirect to the new article
     setTitle("");
     setOverview("");
     setCountry("");
+    setImageurl("");
     setDescription("");
     setRegion("");
+    setImgurl("");
   }
   return (
     <div className="container">
@@ -54,6 +59,13 @@ function Form({loadArticles}) {
         </fieldset>
 
         <fieldset className="form-group row">
+          <label for='imageurl' className="col-sm-2 control-label">General picture URL</label>
+          <div class="col-sm-10">
+            <input id='imageurl' name='imageurl' type='text' className="form-control" value={imageurl} onChange={(e) => setImageurl(e.target.value)}></input>
+          </div>
+        </fieldset>
+
+        <fieldset className="form-group row">
           <label for='region' className="col-sm-2 control-label">Town/Region</label>
           <div class="col-sm-10">
             <input id='region' name='region' type='text' className="form-control" value={region} onChange={(e) => setRegion(e.target.value)} required></input>
@@ -64,6 +76,13 @@ function Form({loadArticles}) {
           <label for='description' className="col-sm-2 control-label">Description</label>
           <div class="col-sm-10">
             <input id='description' name='description' type='text' className="form-control" value={description} onChange={(e) => setDescription(e.target.value)} required></input>
+          </div>
+        </fieldset>
+
+        <fieldset className="form-group row">
+          <label for='imgurl' className="col-sm-2 control-label">Destination picture URL</label>
+          <div class="col-sm-10">
+            <input id='imgurl' name='imgurl' type='text' className="form-control" value={imgurl} onChange={(e) => setImgurl(e.target.value)}></input>
           </div>
         </fieldset>
         

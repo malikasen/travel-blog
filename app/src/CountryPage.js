@@ -18,9 +18,9 @@ const CountryPage = ({countryName, destinations}) => {
   return (
     <div>
       <div className="countryPage">
-        <h2>{countryName}</h2>
         <h3>{destinations[0].title}</h3>
-        <p>{destinations[0].postdate}</p>
+        <h3>{countryName}</h3>
+        <p>{destinations[0].postdate.substring(0,10)}</p>
         <p>{destinations[0].overview}</p>
         <div>
           <img className="photo" src={destinations[0].imageurl} alt={"picture of " + countryName} style={{maxWidth: "100%"}}></img>

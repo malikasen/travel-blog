@@ -4,7 +4,6 @@ import { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 
 import Form from "./Form";
-import Tasks from "./Tasks";
 import Articles from "./Articles";
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';

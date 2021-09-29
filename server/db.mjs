@@ -3,18 +3,15 @@ import pgp from "pg-promise";
 
 const db = initDb();
 
-export const getTasks = () => db.any("SELECT * FROM tasks");
 export const getArticle = () => {
   return db.any("SELECT articles.*, destinations.destination, destinations.description, destinations.imgurl FROM articles RIGHT JOIN destinations ON articles.country=destinations.country ORDER BY articles.postdate");
 }
 // "SELECT articles.*, STRING_AGG(destinations.title, ';'), STRING_AGG(destinations.description, ';'), STRING_AGG(destinations.imgurl, ';') FROM articles RIGHT JOIN destinations ON articles.country=destinations.country GROUP BY articles.country ORDER BY articles.postdate"
 
-export const addTask = (name) =>
-  db.one("INSERT INTO tasks(name) VALUES(${name}) RETURNING *", { name });
-export const addArticle = ({title, country, overview}) => 
-  db.one("INSERT INTO articles(title, country, overview) VALUES(${title}, ${country}, ${overview}) RETURNING *", { title, country, overview });
-export const addDestination = ({country, region, description}) =>
-  db.one("INSERT INTO destinations(country, destination, description) VALUES(${country}, ${region}, ${description}) RETURNING *", { country, region, description });
+export const addArticle = ({title, country, overview, imageurl, date}) => 
+  db.one("INSERT INTO articles(title, country, overview, imageurl, postdate) VALUES(${title}, ${country}, ${overview}, ${imageurl}, ${date}) RETURNING *", { title, country, overview, imageurl, date });
+export const addDestination = ({country, region, description, imgurl}) =>
+  db.one("INSERT INTO destinations(country, destination, description, imgurl) VALUES(${country}, ${region}, ${description}, ${imgurl}) RETURNING *", { country, region, description, imgurl });
 
 function initDb() {
   let connection;

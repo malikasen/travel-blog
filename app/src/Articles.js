@@ -4,8 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CountryPage from "./CountryPage";
 import "./App.css";
 
-// import * as apiClient from "./apiClient";
-
 function Articles({articles, setArticles, loadArticles}) {
   const [groupedArticles, setGroupedArticles] = useState({});
   const articlesToGroupedArticles = localArticles => {
@@ -20,13 +18,6 @@ function Articles({articles, setArticles, loadArticles}) {
     return localGroupedArticles;
   };
   
-  // const loadArticles = async () => {
-  //   return await apiClient.getArticles()
-  //   .then((json) => {
-  //     setArticles(json);
-  //   }) 
-  // }
-
   useEffect(() => {
     loadArticles();
   }, []);
