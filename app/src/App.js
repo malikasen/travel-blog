@@ -7,6 +7,7 @@ import Form from "./Form";
 import Tasks from "./Tasks";
 import Articles from "./Articles";
 import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import * as apiClient from "./apiClient";
 
@@ -25,18 +26,10 @@ const App = () => (
 );
 
 const Home = () => {
-  // const [title, setTitle] = useState("");
-  // const [overview, setOverview] = useState("");
-  // const [country, setCountry] = useState("");
-  // const [description, setDescription] = useState("");
-  // const [region, setRegion] = useState("");
   const [articles, setArticles] = useState([]);
 
   const loadArticles = async () => {
-    return await apiClient.getArticles()
-    .then((json) => {
-      setArticles(json);
-    }) 
+    return setArticles(await apiClient.getArticles())
   }
 
   return (

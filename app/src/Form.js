@@ -18,7 +18,7 @@ function Form({loadArticles}) {
 
   const collectData = (e) => {
     e.preventDefault();
-    const newPost = {title: title, country: country, overview: overview, };
+    const newPost = {title: title, country: country, overview: overview, region: region, description: description};
     // call function postNewPost and possibly redirect to the new article
     addArticle(newPost);
     setTitle("");

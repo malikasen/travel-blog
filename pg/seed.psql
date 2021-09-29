@@ -30,7 +30,7 @@ CREATE TABLE public.articles (
     country text,
     overview text,
     imageurl text,
-    postDate timestamp without time zone
+    postdate timestamp without time zone
 );
 
 
@@ -142,9 +142,9 @@ ALTER TABLE ONLY public.tasks ALTER COLUMN id SET DEFAULT nextval('public.tasks_
 -- Data for Name: articles; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public.articles (id, title, country, overview, imageurl, postDate) FROM stdin;
-1	Active Leisure in Switzerland	Switzerland	If your ideal ski vacation includes see-forever views of towering, snow-covered peaks, copious amounts of fondue, and a side of chocolate, then it’s high time you booked your trip to the Swiss Alps. Visiting Switzerland for its skiing is a time-honored tradition and there’s plenty of reasons why this relatively small country is such a big hit with skiers and snowboarders. With countless options in a unique country with four different languages, cultural and gastronomic areas, Switzerland ski resorts are prolific and steeped in a deep-rooted history.  And while it might seem like a lot, don’t fret. We’re here to break down these world-class resorts and guide you in the direction of the perfect Switzerland Ski Vacation.	\N	\N
-2	Meeting old friends in Germany	Germany	Germany is a Western European country with a landscape of forests, rivers, mountain ranges and North Sea beaches. It has over 2 millennia of history. Berlin, its capital, is home to art and nightlife scenes, the Brandenburg Gate and many sites relating to WWII. Munich is known for its Oktoberfest and beer halls, including the 16th-century Hofbräuhaus. Frankfurt, with its skyscrapers, houses the European Central Bank.	\N	\N
+COPY public.articles (id, title, country, overview, imageurl, postdate) FROM stdin;
+1	Active Leisure in Switzerland	Switzerland	If your ideal ski vacation includes see-forever views of towering, snow-covered peaks, copious amounts of fondue, and a side of chocolate, then it’s high time you booked your trip to the Swiss Alps. Visiting Switzerland for its skiing is a time-honored tradition and there’s plenty of reasons why this relatively small country is such a big hit with skiers and snowboarders. With countless options in a unique country with four different languages, cultural and gastronomic areas, Switzerland ski resorts are prolific and steeped in a deep-rooted history.  And while it might seem like a lot, don’t fret. We’re here to break down these world-class resorts and guide you in the direction of the perfect Switzerland Ski Vacation.	https://travel-blog-pictures-malikasen.s3.us-west-2.amazonaws.com/switzerland.jpg	\N
+2	Meeting old friends in Germany	Germany	Germany is a Western European country with a landscape of forests, rivers, mountain ranges and North Sea beaches. It has over 2 millennia of history. Berlin, its capital, is home to art and nightlife scenes, the Brandenburg Gate and many sites relating to WWII. Munich is known for its Oktoberfest and beer halls, including the 16th-century Hofbräuhaus. Frankfurt, with its skyscrapers, houses the European Central Bank.	https://travel-blog-pictures-malikasen.s3.us-west-2.amazonaws.com/Germany.JPG	\N
 \.
 
 
@@ -153,10 +153,10 @@ COPY public.articles (id, title, country, overview, imageurl, postDate) FROM std
 --
 
 COPY public.destinations (id, country, destination, description, imgurl) FROM stdin;
-1	Switzerland	Saas-Fee	Saas-Fee, a resort village in the Swiss Alps near the Italian border, is known for its proximity to mountains more than 4,000m above sea level, or 4-thousanders. It's a gateway to more than 100km of pistes for skiing and snowboarding, plus sledding and toboggan runs. The Mittelallalin Ice Pavilion is a frozen grotto carved into the Fee Glacier. In the summer, the surrounding area draws hikers and rock climbers.	\N
-2	Switzerland	Zurich	The city of Zurich, a global center for banking and finance, lies at the north end of Lake Zurich in northern Switzerland. The picturesque lanes of the central Altstadt (Old Town), on either side of the Limmat River, reflect its pre-medieval history. Waterfront promenades like the Limmatquai follow the river toward the 17th-century Rathaus (town hall).	\N
-3	Germany	Würzburg	Würzburg is a city in Germany's Bavaria region. It's known for lavish baroque and rococo architecture, particularly the 18th-century Residenz palace, with ornate rooms, a huge fresco by Venetian artist Tiepolo and an elaborate staircase. Home to numerous wine bars, cellars and wineries, Würzburg is the center of the Franconian wine country, with its distinctive bocksbeutel (bottles with flattened round shapes).	\N
-4	Germany	Munich	Munich, Bavaria's capital, is home to centuries-old buildings and numerous museums. The city is known for its annual Oktoberfest celebration and its beer halls, including the famed Hofbräuhaus, founded in 1589. In the Altstadt (Old Town), central Marienplatz square contains landmarks such as Neo-Gothic Neues Rathaus (town hall), with a popular glockenspiel show that chimes and reenacts stories from the 16th century.	\N
+1	Switzerland	Saas-Fee	Saas-Fee, a resort village in the Swiss Alps near the Italian border, is known for its proximity to mountains more than 4,000m above sea level, or 4-thousanders. It's a gateway to more than 100km of pistes for skiing and snowboarding, plus sledding and toboggan runs. The Mittelallalin Ice Pavilion is a frozen grotto carved into the Fee Glacier. In the summer, the surrounding area draws hikers and rock climbers.	https://travel-blog-pictures-malikasen.s3.us-west-2.amazonaws.com/Saas-Fee-village.JPG
+2	Switzerland	Zurich	The city of Zurich, a global center for banking and finance, lies at the north end of Lake Zurich in northern Switzerland. The picturesque lanes of the central Altstadt (Old Town), on either side of the Limmat River, reflect its pre-medieval history. Waterfront promenades like the Limmatquai follow the river toward the 17th-century Rathaus (town hall).	https://travel-blog-pictures-malikasen.s3.us-west-2.amazonaws.com/zurich.jpg
+3	Germany	Würzburg	Würzburg is a city in Germany's Bavaria region. It's known for lavish baroque and rococo architecture, particularly the 18th-century Residenz palace, with ornate rooms, a huge fresco by Venetian artist Tiepolo and an elaborate staircase. Home to numerous wine bars, cellars and wineries, Würzburg is the center of the Franconian wine country, with its distinctive bocksbeutel (bottles with flattened round shapes).	https://travel-blog-pictures-malikasen.s3.us-west-2.amazonaws.com/Wurtsburg.JPG
+4	Germany	Munich	Munich, Bavaria's capital, is home to centuries-old buildings and numerous museums. The city is known for its annual Oktoberfest celebration and its beer halls, including the famed Hofbräuhaus, founded in 1589. In the Altstadt (Old Town), central Marienplatz square contains landmarks such as Neo-Gothic Neues Rathaus (town hall), with a popular glockenspiel show that chimes and reenacts stories from the 16th century.	https://travel-blog-pictures-malikasen.s3.us-west-2.amazonaws.com/Munich.JPG
 \.
 
 

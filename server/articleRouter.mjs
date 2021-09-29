@@ -13,14 +13,23 @@ articleRouter.get("/", async (request, response) => {
 articleRouter.use(express.json());
 articleRouter.post("/", async (request, response) => {
   console.log("body", request.body);
-  const params = {
+  const params1 = {
     title: request.body.title, 
     country: request.body.country, 
     overview: request.body.overview
   }
-  console.log(params);
-  const article = await db.addArticle(params);
-  response.status(201).json(article);
+  const params2 = {
+    country: request.body.country, 
+    region: request.body.region, 
+    description: request.body.description
+  }
+  const article = await db.addArticle(params1);
+  const destination = await db.addDestination(params2);
+  // const newArticleAdded = {
+  //   article: article,
+  //   destination: destination
+  // }
+  response.status(201).json({ article, destination });
 });
 
 export default articleRouter;
