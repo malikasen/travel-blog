@@ -3,18 +3,24 @@ import { useState } from "react";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
+import * as apiClient from "./apiClient";
 
-function Form() {
+function Form({loadArticles}) {
   const [title, setTitle] = useState("");
   const [overview, setOverview] = useState("");
   const [country, setCountry] = useState("");
   const [description, setDescription] = useState("");
   const [region, setRegion] = useState("");
 
+  const addArticle = (newPost) => {
+    return apiClient.addArticle(newPost).then(loadArticles);
+  }
+
   const collectData = (e) => {
     e.preventDefault();
-    const newPost = {title: title, overview: overview, country: country, description: description, region: region};
+    const newPost = {title: title, country: country, overview: overview, };
     // call function postNewPost and possibly redirect to the new article
+    addArticle(newPost);
     setTitle("");
     setOverview("");
     setCountry("");

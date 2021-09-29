@@ -11,9 +11,16 @@ articleRouter.get("/", async (request, response) => {
 });
 
 articleRouter.use(express.json());
-// articleRouter.post("/", async (request, response) => {
-//   const article = await db.addArticle(request.body.name);
-//   response.status(201).json(article);
-// });
+articleRouter.post("/", async (request, response) => {
+  console.log("body", request.body);
+  const params = {
+    title: request.body.title, 
+    country: request.body.country, 
+    overview: request.body.overview
+  }
+  console.log(params);
+  const article = await db.addArticle(params);
+  response.status(201).json(article);
+});
 
 export default articleRouter;

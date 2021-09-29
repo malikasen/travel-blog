@@ -11,6 +11,8 @@ export const getArticle = () => {
 
 export const addTask = (name) =>
   db.one("INSERT INTO tasks(name) VALUES(${name}) RETURNING *", { name });
+export const addArticle = ({title, country, overview}) => 
+  db.one("INSERT INTO articles(title, country, overview) VALUES(${title}, ${country}, ${overview}) RETURNING *", { title, country, overview });
 
 function initDb() {
   let connection;
