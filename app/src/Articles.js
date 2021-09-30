@@ -8,7 +8,7 @@ function Articles({articles, loadArticles}) {
   const [groupedArticles, setGroupedArticles] = useState({});
   const articlesToGroupedArticles = localArticles => {
     const localGroupedArticles = {};
-    for(let i = 0; i < articles.length; i++) {
+    for(let i = 0; i < localArticles.length; i++) {
       const article = localArticles[i];
       if(localGroupedArticles[article.country] === undefined){
         localGroupedArticles[article.country] = [];
@@ -25,7 +25,7 @@ function Articles({articles, loadArticles}) {
   useEffect(() => {
     setGroupedArticles(articlesToGroupedArticles(articles))
   }, [articles]);
-  console.log("articles", articles)
+  // console.log("articles", articles)
   console.log("grouped", groupedArticles);
   const [countryPages, setCountryPages] = useState([]);
 
