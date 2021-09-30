@@ -5,10 +5,16 @@ import * as db from "./db.mjs";
 const articleRouter = express.Router();
 
 articleRouter.get("/", async (request, response) => {
-  const article = await db.getArticle();
+  const articles = await db.getArticles();
   // console.log("article",article);
-  response.json(article);
+  response.json(articles);
 });
+
+articleRouter.get("/:sloug", async (request, response) => {
+  const sloug = request.params.sloug;
+  const article = await db.getArticle({sloug});
+  response.json(article);
+})
 
 articleRouter.use(express.json());
 articleRouter.post("/", async (request, response) => {

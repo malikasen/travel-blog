@@ -31,4 +31,5 @@ form {
 }
 .photo {
   height: auto;
+  max-width: 100%;
 }

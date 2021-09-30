@@ -5,6 +5,7 @@ import { Routes, Route, Link } from "react-router-dom";
 
 import Form from "./Form";
 import Articles from "./Articles";
+import Post from "./Post";
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -19,6 +20,7 @@ const App = () => (
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/new-post" element={<NewPost />} />
+        <Route path="/article/:sloug" element={<Post />} />
       </Routes>
     </main>
   </div>

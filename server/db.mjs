@@ -3,10 +3,14 @@ import pgp from "pg-promise";
 
 const db = initDb();
 
-export const getArticle = () => {
+export const getArticles = () => {
   return db.any("SELECT articles.*, destinations.destination, destinations.description, destinations.imgurl FROM articles RIGHT JOIN destinations ON articles.country=destinations.country ORDER BY articles.postdate");
 }
 // "SELECT articles.*, STRING_AGG(destinations.title, ';'), STRING_AGG(destinations.description, ';'), STRING_AGG(destinations.imgurl, ';') FROM articles RIGHT JOIN destinations ON articles.country=destinations.country GROUP BY articles.country ORDER BY articles.postdate"
+
+export const getArticle = ({sloug}) => {
+  return db.one("SELECT articles.*, destinations.destination, destinations.description, destinations.imgurl FROM articles RIGHT JOIN destinations ON articles.country=destinations.country WHERE sloug=${sloug} LIMIT 1", {sloug})
+}
 
 export const addArticle = ({title, country, overview, imageurl, date}) => 
   db.one("INSERT INTO articles(title, country, overview, imageurl, postdate) VALUES(${title}, ${country}, ${overview}, ${imageurl}, ${date}) RETURNING *", { title, country, overview, imageurl, date });
