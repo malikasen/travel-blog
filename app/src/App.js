@@ -37,7 +37,7 @@ const Home = () => {
     <>
       <h1>{process.env.REACT_APP_TITLE}</h1>
       <h2>{process.env.REACT_APP_SUBTITLE}</h2>
-      <Articles articles={articles} setArticles={setArticles} loadArticles={loadArticles}/>
+      <Articles articles={articles} loadArticles={loadArticles}/>
       <Form loadArticles={loadArticles} />
     </>
   )

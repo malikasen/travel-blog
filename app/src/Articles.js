@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CountryPage from "./CountryPage";
 import "./App.css";
 
-function Articles({articles, setArticles, loadArticles}) {
+function Articles({articles, loadArticles}) {
   const [groupedArticles, setGroupedArticles] = useState({});
   const articlesToGroupedArticles = localArticles => {
     const localGroupedArticles = {};
@@ -25,7 +25,8 @@ function Articles({articles, setArticles, loadArticles}) {
   useEffect(() => {
     setGroupedArticles(articlesToGroupedArticles(articles))
   }, [articles]);
-
+  console.log("articles", articles)
+  console.log("grouped", groupedArticles);
   const [countryPages, setCountryPages] = useState([]);
 
   useEffect(() => {

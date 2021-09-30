@@ -6,16 +6,14 @@ const db = initDb();
 export const getArticles = () => {
   return db.any("SELECT articles.*, destinations.destination, destinations.description, destinations.imgurl FROM articles RIGHT JOIN destinations ON articles.country=destinations.country ORDER BY articles.postdate");
 }
-// "SELECT articles.*, STRING_AGG(destinations.title, ';'), STRING_AGG(destinations.description, ';'), STRING_AGG(destinations.imgurl, ';') FROM articles RIGHT JOIN destinations ON articles.country=destinations.country GROUP BY articles.country ORDER BY articles.postdate"
 
 export const getArticle = ({sloug}) => {
-  return db.one("SELECT articles.*, destinations.destination, destinations.description, destinations.imgurl FROM articles RIGHT JOIN destinations ON articles.country=destinations.country WHERE sloug=${sloug} LIMIT 1", {sloug})
+  return db.one("SELECT articles.*, destinations.destination, destinations.description, destinations.imgurl FROM articles RIGHT JOIN destinations ON articles.country=destinations.country WHERE sloug=${sloug}", {sloug})
 }
 
-export const addArticle = ({title, country, overview, imageurl, date}) => 
-  db.one("INSERT INTO articles(title, country, overview, imageurl, postdate) VALUES(${title}, ${country}, ${overview}, ${imageurl}, ${date}) RETURNING *", { title, country, overview, imageurl, date });
+export const addArticle = ({title, country, overview, imageurl, date, slug}) => 
+  db.one("INSERT INTO articles(title, country, overview, imageurl, postdate, sloug) VALUES(${title}, ${country}, ${overview}, ${imageurl}, ${date}, ${slug}) RETURNING *", { title, country, overview, imageurl, date, slug });
 export const addDestination = ({country, region, description, imgurl}) => {
-  console.log("addDestination function is called")
   return db.one("INSERT INTO destinations(country, destination, description, imgurl) VALUES(${country}, ${region}, ${description}, ${imgurl}) RETURNING *", { country, region, description, imgurl });
 }
   

@@ -21,8 +21,8 @@ function Form({loadArticles}) {
   const collectData = (e) => {
     e.preventDefault();
     const date = new Date();
-    
-    const newPost = {title: title, country: country, overview: overview, imageurl: imageurl, date: date, region: region, description: description, imgurl: imgurl};
+    const slug = title.split(" ").join("-");
+    const newPost = {title: title, country: country, overview: overview, imageurl: imageurl, date: date, slug: slug, region: region, description: description, imgurl: imgurl};
     addArticle(newPost);
     // redirect to the new article
     setTitle("");
