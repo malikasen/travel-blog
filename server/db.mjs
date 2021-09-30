@@ -10,8 +10,11 @@ export const getArticle = () => {
 
 export const addArticle = ({title, country, overview, imageurl, date}) => 
   db.one("INSERT INTO articles(title, country, overview, imageurl, postdate) VALUES(${title}, ${country}, ${overview}, ${imageurl}, ${date}) RETURNING *", { title, country, overview, imageurl, date });
-export const addDestination = ({country, region, description, imgurl}) =>
-  db.one("INSERT INTO destinations(country, destination, description, imgurl) VALUES(${country}, ${region}, ${description}, ${imgurl}) RETURNING *", { country, region, description, imgurl });
+export const addDestination = ({country, region, description, imgurl}) => {
+  console.log("addDestination function is called")
+  return db.one("INSERT INTO destinations(country, destination, description, imgurl) VALUES(${country}, ${region}, ${description}, ${imgurl}) RETURNING *", { country, region, description, imgurl });
+}
+  
 
 function initDb() {
   let connection;

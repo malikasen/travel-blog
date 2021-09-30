@@ -6,7 +6,7 @@ const articleRouter = express.Router();
 
 articleRouter.get("/", async (request, response) => {
   const article = await db.getArticle();
-  console.log(article);
+  console.log("article",article);
   response.json(article);
 });
 
