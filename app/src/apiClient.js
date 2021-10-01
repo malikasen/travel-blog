@@ -1,6 +1,8 @@
 export const getArticles = () => _get("/api/article");
 
-export const getArticle = ({sloug}) => _get(`/api/article/${sloug}`)
+export const getArticle = ({sloug}) => {
+  return _get(`/api/article/${sloug}`)
+}
 
 export const addArticle = (newPost) => {
   console.log("addArticle was called in apiClient")

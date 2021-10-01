@@ -8,7 +8,7 @@ export const getArticles = () => {
 }
 
 export const getArticle = ({sloug}) => {
-  return db.one("SELECT articles.*, destinations.destination, destinations.description, destinations.imgurl FROM articles RIGHT JOIN destinations ON articles.country=destinations.country WHERE sloug=${sloug}", {sloug})
+  return db.any("SELECT articles.*, destinations.destination, destinations.description, destinations.imgurl FROM articles RIGHT JOIN destinations ON articles.country=destinations.country WHERE sloug=${sloug}", {sloug})
 }
 
 export const addArticle = ({title, country, overview, imageurl, date, slug}) => 

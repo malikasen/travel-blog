@@ -11,7 +11,7 @@ import "./App.css";
 
 
 function Post() {
-  const [article, setArticle] = useState({});
+  const [article, setArticle] = useState([]);
   let { sloug } = useParams();
   const [groupedArticle, setGroupedArticle] = useState({});
 
@@ -28,9 +28,11 @@ function Post() {
     }
     return localGroupedArticle;
   };
-
+  const loadArticle = async () => {
+    return setArticle(await apiClient.getArticle({ sloug }))
+  }
   useEffect(async() => {
-    setArticle(await apiClient.getArticle({ sloug }));
+    loadArticle();
   }, [])
 
   useEffect(() => {
