@@ -29,6 +29,7 @@ function Post() {
     return localGroupedArticle;
   };
   const loadArticle = async () => {
+    console.log("loadArticle is called");
     return setArticle(await apiClient.getArticle({ sloug }))
   }
   useEffect(async() => {

@@ -29,7 +29,7 @@ const CountryPage = ({countryName, destinations}) => {
           return <Destination destination={destination}/>
         })}
       </div>
-      <a className="more" href="#">Read more</a>
+      <a className="more" href={"/api/article/"+destinations[0].slough}>Read more</a>
     </div>
   )
 }
